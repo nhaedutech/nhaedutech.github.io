@@ -825,6 +825,36 @@
     margin-bottom: 28px;
   }
 
+  /* Star rating */
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+    width: fit-content;
+  }
+
+  .star-rating input {
+    display: none;
+  }
+
+  .star-rating label {
+    font-size: 32px;
+    color: rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: color 0.15s;
+    padding: 0 2px;
+    font-weight: normal;
+    border: none;
+    background: none;
+    margin: 0;
+  }
+
+  .star-rating label:hover,
+  .star-rating label:hover ~ label,
+  .star-rating input:checked ~ label {
+    color: #f59e0b;
+  }
+
   .review-form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1111,40 +1141,17 @@
     </p>
 
     <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The Career Spotlight Day app transformed what used to be a logistical nightmare into a smooth, professional experience. Students loved it and staff couldn't believe how easy it was."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SE</div>
-          <div>
-            <div class="testimonial-name">Sarah E.</div>
-            <div class="testimonial-role">Careers Lead · Secondary School, London</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Having a live leaderboard on Sports Day changed the entire atmosphere. Students were checking it constantly. The volunteer entry system was so simple anyone could use it."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MK</div>
-          <div>
-            <div class="testimonial-name">Mr K.</div>
-            <div class="testimonial-role">PE Department · Secondary School, London</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card featured">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Built exactly to our needs. Nothing we asked for was too much — every feature was delivered quickly and worked first time. We'll be using NHA EduTech for every event going forward."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JP</div>
-          <div>
-            <div class="testimonial-name">J. Patel</div>
-            <div class="testimonial-role">Deputy Headteacher · Secondary School, London</div>
-          </div>
-        </div>
+      <div style="
+        grid-column: 1 / -1;
+        background: var(--navy-mid);
+        border: 1px dashed rgba(255,255,255,0.12);
+        border-radius: 16px;
+        padding: 48px;
+        text-align: center;
+      ">
+        <div style="font-size: 36px; margin-bottom: 16px; opacity: 0.3;">★★★★★</div>
+        <p style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.3); margin-bottom: 10px;">No reviews yet</p>
+        <p style="font-size: 14px; color: var(--muted); font-weight: 300;">Be the first to share your experience with an NHA EduTech product.</p>
       </div>
     </div>
 
@@ -1178,6 +1185,23 @@
             </select>
           </div>
         </div>
+
+        <div class="form-group" style="margin-top:16px;">
+          <label>Your rating</label>
+          <div class="star-rating">
+            <input type="radio" name="rating" value="5" id="star5" required>
+            <label for="star5" title="5 stars">★</label>
+            <input type="radio" name="rating" value="4" id="star4">
+            <label for="star4" title="4 stars">★</label>
+            <input type="radio" name="rating" value="3" id="star3">
+            <label for="star3" title="3 stars">★</label>
+            <input type="radio" name="rating" value="2" id="star2">
+            <label for="star2" title="2 stars">★</label>
+            <input type="radio" name="rating" value="1" id="star1">
+            <label for="star1" title="1 star">★</label>
+          </div>
+        </div>
+
         <div class="form-group" style="margin-top:12px;">
           <label>Your review</label>
           <textarea name="review" placeholder="Tell us about your experience..." style="min-height:100px;" required></textarea>
@@ -1307,6 +1331,7 @@
     <a href="https://nhaedutech.co.uk" style="color:var(--white); text-decoration:none;"><strong>NHA EduTech</strong></a> · Trading name of Next Horizon Achievements Ltd
   </div>
   <div class="footer-right">
+    <a href="privacy.html" style="color:rgba(148,163,184,0.5); text-decoration:none; margin-right:16px;">Privacy Policy</a>
     Building purposeful software, worldwide. · © 2026 NHA EduTech
   </div>
 </footer>
